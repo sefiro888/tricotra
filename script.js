@@ -1,20 +1,30 @@
 const filters = document.querySelectorAll(".filter");
 const products = document.querySelectorAll(".product-card");
-const addButtons = document.querySelectorAll("[data-name][data-price]");
+const addButtons = document.querySelectorAll("[data-id][data-name][data-price]");
 const cartCount = document.querySelector("#cart-count");
 const cartItems = document.querySelector("#cart-items");
 const cartSubtotal = document.querySelector("#cart-subtotal");
 const cartShipping = document.querySelector("#cart-shipping");
 const cartTotal = document.querySelector("#cart-total");
 const checkoutForm = document.querySelector("#checkout-form");
+const checkoutButton = document.querySelector("#checkout-button");
+const paymentElementContainer = document.querySelector("#payment-element");
+const paymentMessage = document.querySelector("#payment-message");
 const orderConfirmation = document.querySelector("#order-confirmation");
 
 const CART_KEY = "tricotra-cart";
-const ORDER_KEY = "tricotra-orders";
 const SHIPPING_PRICE = 4.9;
 const FREE_SHIPPING_FROM = 150;
 
 let cart = loadCart();
+let stripe = null;
+let elements = null;
+let paymentReady = false;
+let activeOrderId = "";
+let activeTotal = 0;
+
+initStripe();
+renderCart();
 
 filters.forEach((filter) => {
   filter.addEventListener("click", () => {
@@ -33,6 +43,7 @@ filters.forEach((filter) => {
 addButtons.forEach((button) => {
   button.addEventListener("click", () => {
     addToCart({
+      id: button.dataset.id,
       name: button.dataset.name,
       price: Number(button.dataset.price)
     });
@@ -41,61 +52,153 @@ addButtons.forEach((button) => {
 
 cartItems.addEventListener("click", (event) => {
   const action = event.target.dataset.action;
-  const name = event.target.dataset.name;
+  const id = event.target.dataset.id;
 
-  if (!action || !name) {
+  if (!action || !id) {
     return;
   }
 
   if (action === "increase") {
-    updateQuantity(name, 1);
+    updateQuantity(id, 1);
   }
 
   if (action === "decrease") {
-    updateQuantity(name, -1);
+    updateQuantity(id, -1);
   }
 
   if (action === "remove") {
-    removeItem(name);
+    removeItem(id);
   }
 });
 
-checkoutForm.addEventListener("submit", (event) => {
+checkoutForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  clearMessage();
 
   if (cart.length === 0) {
-    orderConfirmation.hidden = false;
-    orderConfirmation.innerHTML = "<strong>Tu bolsa esta vacia.</strong><span>Anade una pieza antes de confirmar el pedido.</span>";
+    showMessage("Anade una pieza antes de confirmar el pedido.");
     return;
   }
 
-  const formData = new FormData(checkoutForm);
-  const totals = getTotals();
-  const order = {
-    id: `TRI-${Date.now().toString().slice(-6)}`,
-    date: new Date().toISOString(),
-    customer: Object.fromEntries(formData.entries()),
-    items: cart,
-    total: totals.total
-  };
+  if (!stripe) {
+    showMessage("Stripe no esta configurado todavia. Revisa las claves del servidor.");
+    return;
+  }
 
-  const orders = JSON.parse(localStorage.getItem(ORDER_KEY) || "[]");
-  orders.push(order);
-  localStorage.setItem(ORDER_KEY, JSON.stringify(orders));
+  setLoading(true);
 
-  cart = [];
-  saveCart();
-  renderCart();
-  checkoutForm.reset();
+  try {
+    if (!paymentReady) {
+      await prepareSecurePayment();
+      return;
+    }
 
-  orderConfirmation.hidden = false;
-  orderConfirmation.innerHTML = `<strong>Pedido ${order.id} confirmado.</strong><span>Hemos guardado tu pedido interno por ${formatPrice(order.total)}. El siguiente paso sera conectar pagos reales al dominio.</span>`;
+    const result = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: window.location.href.split("#")[0]
+      },
+      redirect: "if_required"
+    });
+
+    if (result.error) {
+      showMessage(result.error.message || "No se pudo confirmar el pago.");
+      return;
+    }
+
+    cart = [];
+    saveCart();
+    renderCart();
+    checkoutForm.reset();
+    resetPaymentElement();
+
+    orderConfirmation.hidden = false;
+    orderConfirmation.innerHTML = `<strong>Pedido ${activeOrderId} pagado.</strong><span>Pago seguro confirmado por ${formatPrice(activeTotal / 100)}.</span>`;
+  } catch (error) {
+    showMessage(error.message || "No se pudo preparar el pago seguro.");
+  } finally {
+    setLoading(false);
+  }
 });
 
-renderCart();
+async function initStripe() {
+  try {
+    const response = await fetch("/api/config");
+    const config = await response.json();
+
+    if (!config.publishableKey) {
+      showMessage("Faltan las claves publicas de Stripe en el servidor.");
+      return;
+    }
+
+    stripe = Stripe(config.publishableKey);
+  } catch {
+    showMessage("Abre la pagina desde el servidor local para activar el pago seguro.");
+  }
+}
+
+async function prepareSecurePayment() {
+  const response = await fetch("/api/create-payment-intent", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      customer: getCustomerData(),
+      cart: cart.map((item) => ({
+        id: item.id,
+        quantity: item.quantity
+      }))
+    })
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || "No se pudo crear el pago.");
+  }
+
+  activeOrderId = data.orderId;
+  activeTotal = data.total;
+  elements = stripe.elements({
+    clientSecret: data.clientSecret,
+    appearance: {
+      theme: "stripe",
+      variables: {
+        colorPrimary: "#b0162d",
+        colorBackground: "#fffdf8",
+        colorText: "#110d0a",
+        colorDanger: "#e83a3f",
+        borderRadius: "0px",
+        fontFamily: "Trebuchet MS, sans-serif"
+      }
+    }
+  });
+
+  const paymentElement = elements.create("payment");
+  paymentElementContainer.innerHTML = "";
+  paymentElement.mount("#payment-element");
+  paymentElementContainer.classList.add("is-ready");
+  paymentReady = true;
+  checkoutButton.textContent = `Pagar ${formatPrice(activeTotal / 100)}`;
+  showMessage("Pago seguro preparado. Introduce los datos de pago en el bloque de Stripe.");
+}
+
+function getCustomerData() {
+  const formData = new FormData(checkoutForm);
+
+  return {
+    name: String(formData.get("name") || "").trim(),
+    email: String(formData.get("email") || "").trim(),
+    phone: String(formData.get("phone") || "").trim(),
+    city: String(formData.get("city") || "").trim(),
+    address: String(formData.get("address") || "").trim(),
+    notes: String(formData.get("notes") || "").trim()
+  };
+}
 
 function addToCart(product) {
-  const existingProduct = cart.find((item) => item.name === product.name);
+  const existingProduct = cart.find((item) => item.id === product.id);
 
   if (existingProduct) {
     existingProduct.quantity += 1;
@@ -103,15 +206,16 @@ function addToCart(product) {
     cart.push({ ...product, quantity: 1 });
   }
 
+  resetPaymentElement();
   saveCart();
   renderCart();
   document.querySelector("#carrito").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function updateQuantity(name, change) {
+function updateQuantity(id, change) {
   cart = cart
     .map((item) => {
-      if (item.name !== name) {
+      if (item.id !== id) {
         return item;
       }
 
@@ -119,12 +223,14 @@ function updateQuantity(name, change) {
     })
     .filter((item) => item.quantity > 0);
 
+  resetPaymentElement();
   saveCart();
   renderCart();
 }
 
-function removeItem(name) {
-  cart = cart.filter((item) => item.name !== name);
+function removeItem(id) {
+  cart = cart.filter((item) => item.id !== id);
+  resetPaymentElement();
   saveCart();
   renderCart();
 }
@@ -140,14 +246,14 @@ function renderCart() {
       cartItem.className = "cart-item";
       cartItem.innerHTML = `
         <div>
-          <span>${item.name}</span>
+          <span>${escapeHtml(item.name)}</span>
           <strong>${formatPrice(item.price)}</strong>
         </div>
-        <div class="quantity-controls" aria-label="Cantidad de ${item.name}">
-          <button type="button" data-action="decrease" data-name="${item.name}">-</button>
+        <div class="quantity-controls" aria-label="Cantidad de ${escapeHtml(item.name)}">
+          <button type="button" data-action="decrease" data-id="${item.id}">-</button>
           <span>${item.quantity}</span>
-          <button type="button" data-action="increase" data-name="${item.name}">+</button>
-          <button type="button" data-action="remove" data-name="${item.name}">Quitar</button>
+          <button type="button" data-action="increase" data-id="${item.id}">+</button>
+          <button type="button" data-action="remove" data-id="${item.id}">Quitar</button>
         </div>
       `;
       cartItems.append(cartItem);
@@ -172,13 +278,41 @@ function getTotals() {
   };
 }
 
+function resetPaymentElement() {
+  if (paymentReady) {
+    paymentElementContainer.innerHTML = "";
+    paymentElementContainer.classList.remove("is-ready");
+  }
+
+  paymentReady = false;
+  elements = null;
+  activeOrderId = "";
+  activeTotal = 0;
+  checkoutButton.textContent = "Preparar pago seguro";
+  clearMessage();
+}
+
+function setLoading(isLoading) {
+  checkoutButton.disabled = isLoading;
+  checkoutButton.textContent = isLoading ? "Procesando..." : paymentReady ? `Pagar ${formatPrice(activeTotal / 100)}` : "Preparar pago seguro";
+}
+
+function showMessage(message) {
+  paymentMessage.textContent = message;
+}
+
+function clearMessage() {
+  paymentMessage.textContent = "";
+}
+
 function saveCart() {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
 function loadCart() {
   try {
-    return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    const storedCart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    return storedCart.filter((item) => item.id && item.name && Number(item.price) > 0 && Number(item.quantity) > 0);
   } catch {
     return [];
   }
@@ -189,4 +323,18 @@ function formatPrice(value) {
     style: "currency",
     currency: "EUR"
   }).format(value);
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => {
+    const entities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    };
+
+    return entities[character];
+  });
 }

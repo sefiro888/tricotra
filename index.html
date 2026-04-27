@@ -140,7 +140,7 @@
               <p>Disponible</p>
               <h3>Top Extravaganza</h3>
               <span>60,00 EUR</span>
-              <button type="button" data-name="Top Extravaganza" data-price="60">Anadir a la bolsa</button>
+              <button type="button" data-id="top-extravaganza" data-name="Top Extravaganza" data-price="60">Anadir a la bolsa</button>
             </div>
           </article>
 
@@ -155,7 +155,7 @@
               <p>Disponible</p>
               <h3>Mangas Campana</h3>
               <span>89,00 EUR</span>
-              <button type="button" data-name="Mangas Campana" data-price="89">Anadir a la bolsa</button>
+              <button type="button" data-id="mangas-campana" data-name="Mangas Campana" data-price="89">Anadir a la bolsa</button>
             </div>
           </article>
 
@@ -170,7 +170,7 @@
               <p>Edicion limitada</p>
               <h3>Vestido Nature</h3>
               <span>89,90 EUR</span>
-              <button type="button" data-name="Vestido Nature" data-price="89.90">Anadir a la bolsa</button>
+              <button type="button" data-id="vestido-nature" data-name="Vestido Nature" data-price="89.90">Anadir a la bolsa</button>
             </div>
           </article>
 
@@ -185,7 +185,7 @@
               <p>Opciones disponibles</p>
               <h3>Bolso Moos Chic</h3>
               <span>69,90 EUR</span>
-              <button type="button" data-name="Bolso Moos Chic" data-price="69.90">Anadir a la bolsa</button>
+              <button type="button" data-id="bolso-moos-chic" data-name="Bolso Moos Chic" data-price="69.90">Anadir a la bolsa</button>
             </div>
           </article>
 
@@ -200,7 +200,7 @@
               <p>Opciones disponibles</p>
               <h3>Bolso Tricoluxe</h3>
               <span>59,00 EUR</span>
-              <button type="button" data-name="Bolso Tricoluxe" data-price="59">Anadir a la bolsa</button>
+              <button type="button" data-id="bolso-tricoluxe" data-name="Bolso Tricoluxe" data-price="59">Anadir a la bolsa</button>
             </div>
           </article>
 
@@ -215,7 +215,7 @@
               <p>Bajo pedido</p>
               <h3>Abrigo Grannys</h3>
               <span>395,00 EUR</span>
-              <button type="button" data-name="Abrigo Grannys" data-price="395">Anadir a la bolsa</button>
+              <button type="button" data-id="abrigo-grannys" data-name="Abrigo Grannys" data-price="395">Anadir a la bolsa</button>
             </div>
           </article>
         </div>
@@ -374,14 +374,16 @@
                 <textarea name="notes" rows="3" placeholder="Ej: talla, color preferido o fecha especial"></textarea>
               </label>
             </div>
-            <fieldset>
-              <legend>Metodo de pago</legend>
-              <label><input type="radio" name="payment" value="Tarjeta" checked> Tarjeta</label>
-              <label><input type="radio" name="payment" value="Bizum"> Bizum</label>
-              <label><input type="radio" name="payment" value="Transferencia"> Transferencia</label>
-            </fieldset>
-            <button class="button primary wide" type="submit">Confirmar pedido</button>
-            <p class="checkout-note">Al confirmar se genera un pedido interno de prueba. Para vender online de verdad, despues conectaremos pagos reales y gestion de pedidos al dominio.</p>
+            <div class="secure-payment">
+              <div>
+                <p class="section-kicker">Pago seguro</p>
+                <h3>Tarjeta, Apple Pay, Google Pay y otros metodos compatibles</h3>
+              </div>
+              <div id="payment-element" class="payment-element"></div>
+              <div id="payment-message" class="payment-message" role="alert"></div>
+            </div>
+            <button class="button primary wide" id="checkout-button" type="submit">Preparar pago seguro</button>
+            <p class="checkout-note">Los datos de tarjeta se introducen en Stripe Elements. TRICOTRA no ve ni guarda el numero de tarjeta.</p>
           </form>
           <div class="order-confirmation" id="order-confirmation" hidden></div>
         </div>
@@ -406,6 +408,7 @@
       </div>
     </footer>
 
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="script.js"></script>
   </body>
 </html>

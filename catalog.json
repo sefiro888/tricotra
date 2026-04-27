@@ -1,0 +1,38 @@
+[
+  {
+    "id": "top-extravaganza",
+    "name": "Top Extravaganza",
+    "price": 6000,
+    "category": "prenda"
+  },
+  {
+    "id": "mangas-campana",
+    "name": "Mangas Campana",
+    "price": 8900,
+    "category": "prenda"
+  },
+  {
+    "id": "vestido-nature",
+    "name": "Vestido Nature",
+    "price": 8990,
+    "category": "prenda"
+  },
+  {
+    "id": "bolso-moos-chic",
+    "name": "Bolso Moos Chic",
+    "price": 6990,
+    "category": "bolso"
+  },
+  {
+    "id": "bolso-tricoluxe",
+    "name": "Bolso Tricoluxe",
+    "price": 5900,
+    "category": "bolso"
+  },
+  {
+    "id": "abrigo-grannys",
+    "name": "Abrigo Grannys",
+    "price": 39500,
+    "category": "abrigo"
+  }
+]
