@@ -165,12 +165,12 @@ async function prepareSecurePayment() {
     appearance: {
       theme: "stripe",
       variables: {
-        colorPrimary: "#b0162d",
-        colorBackground: "#fffdf8",
-        colorText: "#110d0a",
-        colorDanger: "#e83a3f",
+        colorPrimary: "#b5613a",
+        colorBackground: "#faf8f4",
+        colorText: "#1e1008",
+        colorDanger: "#cc4f3f",
         borderRadius: "0px",
-        fontFamily: "Trebuchet MS, sans-serif"
+        fontFamily: "Raleway, sans-serif"
       }
     }
   });

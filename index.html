@@ -27,31 +27,40 @@
     </header>
 
     <main id="inicio">
-      <section class="hero">
-        <div class="hero-media">
+      <section class="hero split-hero">
+        <article class="hero-panel" onclick="location.href='colecciones.html'">
           <img
-            src="https://www.tricotra.com/storage/images/bloom.jpg?hash=5c795fa3c8e1f0f8db7d38d64d854e48f0e4591f&shop=92527992&width=1400&height=1800"
+            src="https://www.tricotra.com/storage/images/RITUAL%20CONJUNTO%20GRANNYS.jpg?hash=dc74f3c8e7e6cbdb0b6e6893b8bb850d7a82ab30&shop=92527992&width=900&height=1800"
+            alt="Coleccion Ritual de crochet TRICOTRA"
+          >
+          <div class="hero-overlay">
+            <p class="eyebrow">Nueva temporada</p>
+            <h1>Arte tejido<br><em>a mano.</em></h1>
+            <p>Crochet artesanal en algodon organico. Piezas unicas nacidas en Espana.</p>
+            <a class="button ghost-light" href="colecciones.html">Ver colecciones</a>
+          </div>
+        </article>
+
+        <article class="hero-panel" onclick="location.href='tienda.html'">
+          <img
+            src="https://www.tricotra.com/storage/images/bloom.jpg?hash=5c795fa3c8e1f0f8db7d38d64d854e48f0e4591f&shop=92527992&width=900&height=1800"
             alt="Bolso Urban Bloom de crochet multicolor de TRICOTRA"
           >
-        </div>
-        <div class="hero-copy">
-          <p class="eyebrow">Nueva coleccion capsula</p>
-          <h1>TRICOTRA</h1>
-          <p>
-            Crochet artesanal con color, caracter y ediciones limitadas. Prendas hechas en Espana para vestir
-            distinto, comprar mejor y sentir cada pieza como propia.
-          </p>
-          <div class="hero-actions">
+          <div class="hero-overlay warm">
+            <p class="eyebrow">Exclusivo · Edicion limitada</p>
+            <h1>Urban<br><em>Bloom Bag</em></h1>
+            <p>Color, textura y una pieza protagonista para comprar sin salir de la web.</p>
             <a class="button primary" href="tienda.html">Comprar ahora</a>
-            <a class="button ghost" href="colecciones.html">Ver colecciones</a>
           </div>
-          <div class="hero-badges" aria-label="Beneficios de compra">
-            <span>Hecho en Espana</span>
-            <span>Unidades limitadas</span>
-            <span>Pago interno</span>
-          </div>
-        </div>
+        </article>
       </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Crochet artesanal</span><span>✦</span><span>Hecho a mano</span><span>✦</span><span>Algodon organico</span><span>✦</span><span>Piezas unicas</span><span>✦</span><span>Made in Spain</span><span>✦</span><span>Slow fashion</span><span>✦</span>
+          <span>Crochet artesanal</span><span>✦</span><span>Hecho a mano</span><span>✦</span><span>Algodon organico</span><span>✦</span><span>Piezas unicas</span><span>✦</span><span>Made in Spain</span><span>✦</span><span>Slow fashion</span><span>✦</span>
+        </div>
+      </div>
 
       <section class="quick-shop" id="crochet" aria-label="Compra rapida">
         <article>
@@ -329,6 +338,36 @@
         </div>
       </section>
 
+      <section class="social-section" id="instagram">
+        <div class="shop-heading">
+          <p class="eyebrow">@tricotra.moda</p>
+          <h2>Inspiracion real para una tienda viva</h2>
+          <p>Galeria provisional de demo con imagenes de colecciones Tricotra. Cuando tengamos el material final, esta zona se puede convertir en feed real, campanas o novedades.</p>
+        </div>
+        <div class="social-grid" aria-label="Galeria visual de Tricotra">
+          <a href="tienda.html">
+            <img src="https://www.tricotra.com/storage/images/CHAL%20SALMON%20NATURE.jpg?hash=b71bfeeff76f19189370221b1a812db7c178a5d0&shop=92527992&width=700&height=900" alt="Chal salmon Nature de crochet">
+            <span>Nature</span>
+          </a>
+          <a href="tienda.html">
+            <img src="https://www.tricotra.com/storage/images/bolso%20ritual%20crudo.jpg?hash=9a2ec4ada7fbba4d259b3e59c9729697e52fc8cd&shop=92527992&width=700&height=900" alt="Bolso Ritual crudo">
+            <span>Bolsos</span>
+          </a>
+          <a href="colecciones.html">
+            <img src="https://www.tricotra.com/storage/images/moodboard%20lumina%20mas%20peque%C3%B1o.jpg?hash=20c93f0a51c4cc6f89cfaa44d8640ffe5433c9d5&shop=92527992&width=700&height=900" alt="Moodboard coleccion Lumina">
+            <span>Lumina</span>
+          </a>
+          <a href="tienda.html">
+            <img src="https://www.tricotra.com/storage/images/CHAL%20RITUAL%20VEGGIE.jpg?hash=72c54e9dc5f728544ed9ead8bad1bd7745875bf6&shop=92527992&width=700&height=900" alt="Chal Ritual Veggie">
+            <span>Ritual</span>
+          </a>
+          <a href="conocenos.html">
+            <img src="https://www.tricotra.com/storage/images/TRICOTRA.jpg?hash=35c9a3760e63396df69f65d473bd2f2ac5750cfc&shop=92527992&width=700&height=900" alt="Imagen de marca Tricotra">
+            <span>Atelier</span>
+          </a>
+        </div>
+      </section>
+
       <section class="cart-panel" id="carrito" aria-live="polite">
         <div>
           <p class="eyebrow">Tu bolsa</p>
@@ -404,6 +443,7 @@
       <div>
         <h3>Contacto</h3>
         <a href="contacto.html">Escribir a TRICOTRA</a>
+        <a href="https://www.instagram.com/tricotra.moda/" target="_blank" rel="noopener">Instagram @tricotra.moda</a>
         <a href="conocenos.html">Conocenos</a>
       </div>
       <div>
