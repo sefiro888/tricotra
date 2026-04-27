@@ -1,31 +1,57 @@
-const header = document.querySelector('[data-header]');
-const menuButton = document.querySelector('[data-menu]');
-const nav = document.querySelector('.nav');
+const filters = document.querySelectorAll(".filter");
+const products = document.querySelectorAll(".product-card");
+const addButtons = document.querySelectorAll("[data-name][data-price]");
+const cartCount = document.querySelector("#cart-count");
+const cartItems = document.querySelector("#cart-items");
+const cartTotal = document.querySelector("#cart-total");
 
-const syncHeader = () => {
-  header.classList.toggle('scrolled', window.scrollY > 12);
-};
+const cart = [];
 
-window.addEventListener('scroll', syncHeader);
-syncHeader();
+filters.forEach((filter) => {
+  filter.addEventListener("click", () => {
+    const activeFilter = filter.dataset.filter;
 
-menuButton.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('is-open');
-  header.classList.toggle('menu-open', isOpen);
-  menuButton.setAttribute('aria-label', isOpen ? 'Cerrar menu' : 'Abrir menu');
-});
+    filters.forEach((item) => item.classList.remove("active"));
+    filter.classList.add("active");
 
-nav.addEventListener('click', event => {
-  if (event.target.matches('a')) {
-    nav.classList.remove('is-open');
-    header.classList.remove('menu-open');
-    menuButton.setAttribute('aria-label', 'Abrir menu');
-  }
-});
-
-document.querySelectorAll('.accordion button').forEach(button => {
-  button.addEventListener('click', () => {
-    const isOpen = button.getAttribute('aria-expanded') === 'true';
-    button.setAttribute('aria-expanded', String(!isOpen));
+    products.forEach((product) => {
+      const isVisible = activeFilter === "all" || product.dataset.category === activeFilter;
+      product.hidden = !isVisible;
+    });
   });
 });
+
+addButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    cart.push({
+      name: button.dataset.name,
+      price: Number(button.dataset.price)
+    });
+    renderCart();
+  });
+});
+
+function renderCart() {
+  cartItems.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = '<li class="cart-empty">Tu bolsa esta vacia.</li>';
+  } else {
+    cart.forEach((item) => {
+      const cartItem = document.createElement("li");
+      cartItem.innerHTML = `<span>${item.name}</span><strong>${formatPrice(item.price)}</strong>`;
+      cartItems.append(cartItem);
+    });
+  }
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  cartCount.textContent = cart.length;
+  cartTotal.textContent = formatPrice(total);
+}
+
+function formatPrice(value) {
+  return new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: "EUR"
+  }).format(value);
+}
