@@ -1,349 +1,241 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TRICOTRA | Crochet artesanal</title>
-    <meta
-      name="description"
-      content="TRICOTRA, prendas de crochet hechas a mano en Espana. Colecciones limitadas, bolsos, vestidos, tops y disenos por encargo."
-    >
+    <title>TRICOTRÀ | Moda crochet artesanal</title>
+    <meta name="description" content="Tricotrà, prendas y accesorios de crochet hechos a mano con estética boutique artesanal premium.">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="announcement">Piezas unicas hechas a mano · Envio gratis desde 150 EUR · Produccion consciente</div>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Inicio Tricotrà">TRICOTRÀ</a>
 
-    <header class="site-header">
-      <a class="brand" href="#inicio" aria-label="TRICOTRA inicio">TRICOTRA</a>
-      <nav class="main-nav" aria-label="Principal">
-        <a href="crochet.html">Crochet</a>
-        <a href="colecciones.html">Colecciones</a>
-        <a href="bolsos.html">Bolsos</a>
-        <a href="tienda.html">Tienda</a>
-        <a href="contacto.html">Contacto</a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Navegación principal" data-nav>
+        <a href="#inicio">Inicio</a>
+
+        <div class="nav-dropdown">
+          <a href="#categorias" class="nav-parent">Categorías</a>
+          <button class="submenu-toggle" type="button" aria-label="Abrir categorías" data-submenu-toggle>Categorías</button>
+          <div class="dropdown-panel">
+            <a href="#categorias" data-shopify-collection="cardigan">Cardigan</a>
+            <a href="#categorias" data-shopify-collection="tops">Tops</a>
+            <a href="#categorias" data-shopify-collection="jerseys">Jerseys</a>
+            <a href="#categorias" data-shopify-collection="faldas">Faldas</a>
+            <a href="#categorias" data-shopify-collection="chales-y-cuellos">Chales y cuellos</a>
+            <a href="#categorias" data-shopify-collection="ponchos">Ponchos</a>
+            <a href="#categorias" data-shopify-collection="bolsos">Bolsos</a>
+            <a href="#categorias" data-shopify-collection="complementos">Complementos</a>
+            <a href="#categorias" data-shopify-collection="gorros">Gorros</a>
+            <a href="#categorias" data-shopify-collection="calzado">Calzado</a>
+            <a href="#categorias" data-shopify-collection="outlet-crochet">Outlet Crochet</a>
+            <a href="#categorias" data-shopify-collection="vestidos">Vestidos</a>
+            <a href="#categorias" data-shopify-collection="pantalones-y-short">Pantalones y short</a>
+            <a href="#categorias" data-shopify-collection="bikinis-y-trajes-de-bano">Bikinis y trajes de baño</a>
+            <a href="#categorias" data-shopify-collection="camisetas">Camisetas</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="#colecciones" class="nav-parent">Colecciones</a>
+          <button class="submenu-toggle" type="button" aria-label="Abrir colecciones" data-submenu-toggle>Colecciones</button>
+          <div class="dropdown-panel">
+            <a href="#colecciones" data-shopify-collection="noches-de-menta-y-frambuesa">Noches de Menta y Frambuesa</a>
+            <a href="#colecciones" data-shopify-collection="destellos">Destellos</a>
+            <a href="#colecciones" data-shopify-collection="alpacrochet">Alpacrochet</a>
+            <a href="#colecciones" data-shopify-collection="alma-rustica">Alma Rústica</a>
+            <a href="#colecciones" data-shopify-collection="vibranza-en-hilos">Vibranza en Hilos</a>
+            <a href="#colecciones" data-shopify-collection="pitiusa">Pitiusa</a>
+            <a href="#colecciones" data-shopify-collection="tramas-de-abuela">Tramas de Abuela</a>
+            <a href="#colecciones" data-shopify-collection="soulenco">Soulenco</a>
+            <a href="#colecciones" data-shopify-collection="eclectica">Ecléctica</a>
+            <a href="#colecciones" data-shopify-collection="verdelina">Verdelina</a>
+            <a href="#colecciones" data-shopify-collection="bolsos">Bolsos</a>
+            <a href="#colecciones" data-shopify-collection="camisetas-latido">Camisetas Latido</a>
+            <a href="#colecciones" data-shopify-collection="lumina">Lumina</a>
+            <a href="#colecciones" data-shopify-collection="ritual">Ritual</a>
+          </div>
+        </div>
+
+        <a href="#productos">Productos destacados</a>
+        <a href="#sobre-nosotros">Sobre nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-whatsapp" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">WhatsApp</a>
       </nav>
-      <a class="header-action" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0" aria-label="Contactar por WhatsApp">WhatsApp</a>
     </header>
 
-    <main id="inicio">
-      <section class="hero split-hero">
-        <article class="hero-panel" onclick="location.href='colecciones.html'">
-          <img
-            src="assets/img/tricotra-23-c3ffa6fa.jpg"
-            alt="Coleccion Ritual de crochet TRICOTRA"
-          >
-          <div class="hero-overlay">
-            <p class="eyebrow">Nueva temporada</p>
-            <h1>Arte tejido<br><em>a mano.</em></h1>
-            <p>Crochet artesanal en algodon organico. Piezas unicas nacidas en Espana.</p>
-            <a class="button ghost-light" href="colecciones.html">Ver colecciones</a>
-          </div>
-        </article>
-
-        <article class="hero-panel" onclick="location.href='tienda.html'">
-          <img
-            src="assets/img/tricotra-04-90a7c116.jpg"
-            alt="Bolso Urban Bloom de crochet multicolor de TRICOTRA"
-          >
-          <div class="hero-overlay warm">
-            <p class="eyebrow">Exclusivo · Edicion limitada</p>
-            <h1>Urban<br><em>Bloom Bag</em></h1>
-            <p>Color, textura y una pieza protagonista para consultar directamente con TRICOTRA.</p>
-            <a class="button primary" href="tienda.html">Ver escaparate</a>
-          </div>
-        </article>
-      </section>
-
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>Crochet artesanal</span><span>·</span><span>Hecho a mano</span><span>·</span><span>Algodon organico</span><span>·</span><span>Piezas unicas</span><span>·</span><span>Made in Spain</span><span>·</span><span>Slow fashion</span><span>·</span>
-          <span>Crochet artesanal</span><span>·</span><span>Hecho a mano</span><span>·</span><span>Algodon organico</span><span>·</span><span>Piezas unicas</span><span>·</span><span>Made in Spain</span><span>·</span><span>Slow fashion</span><span>·</span>
-        </div>
-      </div>
-
-      <section class="quick-shop" id="crochet" aria-label="Compra rapida">
-        <article>
-          <span>01</span>
-          <h2>Hecho a mano</h2>
-          <p>Cada puntada se trabaja con tiempo, textura y cuidado real.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h2>Edicion limitada</h2>
-          <p>No fabricamos en serie: cada prenda tiene una presencia unica.</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h2>Zero waste</h2>
-          <p>Materiales naturales, reciclados y produccion bajo pedido.</p>
-        </article>
-      </section>
-
-      <section class="shop-section" id="categorias">
-        <div class="shop-heading">
-          <p class="eyebrow">Categorias</p>
-          <h2>Categorias reales TRICOTRA</h2>
-          <p>Una seleccion ordenada de las familias principales para explorar el universo crochet de la marca.</p>
-        </div>
-        <div class="category-strip" aria-label="Categorias reales de TRICOTRA">
-          <a href="tienda.html"><span>Cardigan</span><strong>Chaquetas tejidas a mano con textura.</strong></a>
-          <a href="tienda.html"><span>Tops</span><strong>Piezas ligeras, coloridas y protagonistas.</strong></a>
-          <a href="tienda.html"><span>Jerseys</span><strong>Prendas suaves para looks de temporada.</strong></a>
-          <a href="tienda.html"><span>Faldas</span><strong>Siluetas artesanales con movimiento.</strong></a>
-          <a href="tienda.html"><span>Chales y cuellos</span><strong>Capas de crochet para completar el look.</strong></a>
-          <a href="tienda.html"><span>Ponchos</span><strong>Volumen, abrigo y punto artesanal.</strong></a>
-          <a href="bolsos.html"><span>Bolsos</span><strong>Accesorios con color y caracter propio.</strong></a>
-          <a href="tienda.html"><span>Complementos</span><strong>Detalles especiales hechos a mano.</strong></a>
-          <a href="tienda.html"><span>Gorros</span><strong>Balaclavas y piezas de invierno.</strong></a>
-          <a href="tienda.html"><span>Calzado</span><strong>Propuestas artesanales para completar estilismos.</strong></a>
-          <a href="tienda.html"><span>Outlet Crochet</span><strong>Ultimas oportunidades y piezas seleccionadas.</strong></a>
-          <a href="tienda.html"><span>Vestidos</span><strong>Crochet para verano, eventos y noches especiales.</strong></a>
-          <a href="tienda.html"><span>Pantalones y short</span><strong>Prendas relajadas con identidad TRICOTRA.</strong></a>
-          <a href="tienda.html"><span>Bikinis y trajes de bano</span><strong>Moda de bano con textura artesanal.</strong></a>
-          <a href="tienda.html"><span>Camisetas</span><strong>Basicos con mensaje, color y personalidad.</strong></a>
-        </div>
-      </section>
-
-      <section class="collection-feature" id="colecciones">
-        <div class="section-kicker">Ritual</div>
-        <div class="feature-grid">
-          <div class="feature-text">
-            <h2>Coleccion capsula en algodon organico</h2>
-            <p>
-              Una propuesta de crochet con alma mediterranea: tops, vestidos, chales y bolsos pensados
-              para noches especiales, verano lento y looks con mucha personalidad.
-            </p>
-            <a class="text-link" href="tienda.html">Descubrir la seleccion</a>
-          </div>
-          <div class="lookbook">
-          <img
-            src="assets/img/tricotra-22-6382b3dd.jpg"
-            alt="Prenda de la coleccion Ritual de TRICOTRA"
-          >
-          <img
-            src="assets/img/tricotra-20-6d07e46f.jpg"
-            alt="Detalle de crochet artesanal de la coleccion Ritual"
-          >
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">Moda artesanal con alma mediterránea</p>
+          <h1>Artesanía<br>que se viste</h1>
+          <p>Crochet hecho a mano con calma y detalle.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#colecciones">Ver colecciones</a>
+            <a class="button button-light" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Contactar por WhatsApp</a>
           </div>
         </div>
-      </section>
-
-      <section class="trust-section" id="colecciones-tricotra">
-        <div class="shop-heading">
-          <p class="eyebrow">Colecciones TRICOTRA</p>
-          <h2>Colecciones Tricotra</h2>
-          <p>Capsulas reales de la marca, integradas en el mismo estilo visual de la web actual.</p>
-        </div>
-        <div class="trust-grid">
-          <article><h3>Noches de Menta y Frambuesa</h3><p>Color fresco, contraste y piezas con energia de verano.</p></article>
-          <article><h3>Destellos</h3><p>Brillos, textura y prendas especiales para destacar.</p></article>
-          <article><h3>Alpacrochet</h3><p>Suavidad, abrigo y materiales nobles en clave crochet.</p></article>
-          <article><h3>Alma Rustica</h3><p>Tonos naturales y una estetica artesanal muy mediterranea.</p></article>
-          <article><h3>Vibranza en Hilos</h3><p>Hilos vivos, color y mezclas llenas de personalidad.</p></article>
-          <article><h3>Pitiusa</h3><p>Inspiracion ibicenca para looks ligeros y luminosos.</p></article>
-          <article><h3>Tramas de Abuela</h3><p>Tradicion reinterpretada con patrones contemporaneos.</p></article>
-          <article><h3>Soulenco</h3><p>Una coleccion expresiva con raiz, textura y movimiento.</p></article>
-          <article><h3>Eclectica</h3><p>Mezcla libre de color, formas y piezas unicas.</p></article>
-          <article><h3>Verdelina</h3><p>Verdes, frescura y prendas con presencia natural.</p></article>
-          <article><h3>Bolsos</h3><p>Accesorios artesanales pensados como pieza protagonista.</p></article>
-          <article><h3>Camisetas Latido</h3><p>Mensajes, identidad y prendas faciles de combinar.</p></article>
-          <article><h3>Lumina</h3><p>Luz, delicadeza y crochet para ocasiones especiales.</p></article>
-          <article><h3>Ritual</h3><p>Motivos florales, algodon y una estetica muy TRICOTRA.</p></article>
+        <div class="hero-media">
+          <img src="assets/img/tricotra-23-c3ffa6fa.jpg" alt="Modelo con prenda de crochet artesanal Tricotrà">
         </div>
       </section>
 
-      <section class="shop-section" id="tienda">
-        <div class="shop-heading">
-          <p class="eyebrow">Escaparate</p>
-          <h2>Productos destacados de Tricotra</h2>
-          <p>Seleccion provisional con nombres reales. Las fotos finales se podran sustituir cuando la marca entregue el catalogo ordenado.</p>
+      <section class="section" id="categorias">
+        <div class="section-heading">
+          <p class="eyebrow">Explorar</p>
+          <h2>Categorías</h2>
+          <p>Explora las piezas de Tricotrà por tipo de prenda y accesorio.</p>
         </div>
-
-        <div class="filters" aria-label="Categorias de tienda">
-          <button class="filter active" type="button" data-filter="all">Todo</button>
-          <button class="filter" type="button" data-filter="prenda">Prendas</button>
-          <button class="filter" type="button" data-filter="bolso">Bolsos</button>
-          <button class="filter" type="button" data-filter="abrigo">Invierno</button>
+        <div class="category-grid">
+          <a class="category-card" href="#productos" data-shopify-collection="cardigan"><img src="assets/img/tricotra-23-c3ffa6fa.jpg" alt=""><span>Cardigan</span></a>
+          <a class="category-card" href="#productos" data-shopify-collection="tops"><img src="assets/img/tricotra-10-21f05653.jpg" alt=""><span>Tops</span></a>
+          <a class="category-card" href="#productos" data-shopify-collection="jerseys"><img src="assets/img/tricotra-21-e7a10d84.jpg" alt=""><span>Jerseys</span></a>
+          <a class="category-card" href="#productos" data-shopify-collection="faldas"><img src="assets/img/tricotra-09-c2e0441d.jpg" alt=""><span>Faldas</span></a>
+          <a class="category-card" href="#productos" data-shopify-collection="chales-y-cuellos"><img src="assets/img/tricotra-08-1cbb5e71.jpg" alt=""><span>Chales y cuellos</span></a>
+          <a class="category-card" href="#productos" data-shopify-collection="ponchos"><img src="assets/img/tricotra-22-6382b3dd.jpg" alt=""><span>Ponchos</span></a>
+          <a class="category-card" href="#productos" data-shopify-collection="bolsos"><img src="assets/img/tricotra-04-90a7c116.jpg" alt=""><span>Bolsos</span></a>
+          <a class="category-card" href="#productos" data-shopify-collection="complementos"><img src="assets/img/tricotra-24-56afde8f.jpg" alt=""><span>Complementos</span></a>
+          <a class="category-card small-card" href="#productos" data-shopify-collection="gorros"><span>Gorros</span></a>
+          <a class="category-card small-card" href="#productos" data-shopify-collection="calzado"><span>Calzado</span></a>
+          <a class="category-card small-card" href="#productos" data-shopify-collection="outlet-crochet"><span>Outlet Crochet</span></a>
+          <a class="category-card small-card" href="#productos" data-shopify-collection="vestidos"><span>Vestidos</span></a>
+          <a class="category-card small-card" href="#productos" data-shopify-collection="pantalones-y-short"><span>Pantalones y short</span></a>
+          <a class="category-card small-card" href="#productos" data-shopify-collection="bikinis-y-trajes-de-bano"><span>Bikinis y trajes de baño</span></a>
+          <a class="category-card small-card" href="#productos" data-shopify-collection="camisetas"><span>Camisetas</span></a>
         </div>
+      </section>
 
+      <section class="section section-warm" id="colecciones">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Universos Tricotrà</p>
+            <h2>Colecciones Tricotrà</h2>
+          </div>
+          <p>Universos de color, textura y artesanía para vestir piezas únicas.</p>
+        </div>
+        <div class="collection-grid">
+          <a class="collection-card featured" href="#productos" data-shopify-collection="noches-de-menta-y-frambuesa"><img src="assets/img/tricotra-18-748ce39c.jpg" alt=""><span>Nueva</span><h3>Noches de Menta y Frambuesa</h3><p>Contrastes frescos y prendas con energía de verano.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="destellos"><img src="assets/img/tricotra-19-9d9b62aa.jpg" alt=""><h3>Destellos</h3><p>Brillos suaves y crochet para destacar.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="alpacrochet"><img src="assets/img/tricotra-21-e7a10d84.jpg" alt=""><h3>Alpacrochet</h3><p>Abrigo noble con textura artesanal.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="alma-rustica"><img src="assets/img/tricotra-26-dbf9d8f0.jpg" alt=""><h3>Alma Rústica</h3><p>Tonos naturales y sensibilidad mediterránea.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="vibranza-en-hilos"><img src="assets/img/tricotra-25-a3bd812d.jpg" alt=""><h3>Vibranza en Hilos</h3><p>Color, mezcla y personalidad.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="pitiusa"><img src="assets/img/tricotra-30-0b845335.jpg" alt=""><h3>Pitiusa</h3><p>Luz ibicenca en piezas ligeras.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="tramas-de-abuela"><img src="assets/img/tricotra-22-6382b3dd.jpg" alt=""><h3>Tramas de Abuela</h3><p>Tradición reinterpretada.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="soulenco"><img src="assets/img/tricotra-20-6d07e46f.jpg" alt=""><h3>Soulenco</h3><p>Raíz, textura y movimiento.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="eclectica"><img src="assets/img/tricotra-17-3bb5aead.jpg" alt=""><h3>Ecléctica</h3><p>Libertad cromática y piezas únicas.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="verdelina"><img src="assets/img/tricotra-16-abd83c36.jpg" alt=""><h3>Verdelina</h3><p>Verdes naturales con presencia.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="bolsos"><img src="assets/img/tricotra-04-90a7c116.jpg" alt=""><h3>Bolsos</h3><p>Accesorios protagonistas.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="camisetas-latido"><img src="assets/img/tricotra-29-fd529f17.jpg" alt=""><h3>Camisetas Latido</h3><p>Mensaje y personalidad.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="lumina"><img src="assets/img/tricotra-27-810fdf5a.jpg" alt=""><h3>Lumina</h3><p>Delicadeza para ocasiones especiales.</p></a>
+          <a class="collection-card" href="#productos" data-shopify-collection="ritual"><img src="assets/img/tricotra-23-c3ffa6fa.jpg" alt=""><h3>Ritual</h3><p>Motivos florales y alma Tricotrà.</p></a>
+        </div>
+      </section>
+
+      <section class="section" id="productos">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Selección</p>
+            <h2>Productos destacados</h2>
+          </div>
+          <p>Piezas seleccionadas de crochet artesanal para crear looks con identidad propia.</p>
+        </div>
         <div class="product-grid">
-          <article class="product-card" data-category="bolso"><div class="product-media"><img src="assets/img/tricotra-04-90a7c116.jpg" alt="Urban Bloom Bag"><img class="hover-image" src="assets/img/tricotra-03-6281803c.jpg" alt=""></div><div class="product-info"><p>Bolso</p><h3>Urban Bloom Bag</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="prenda"><div class="product-media"><img src="assets/img/tricotra-10-21f05653.jpg" alt="Top Crochet Fucsia y Negro con Volantes"><img class="hover-image" src="assets/img/tricotra-25-a3bd812d.jpg" alt=""></div><div class="product-info"><p>Top</p><h3>Top Crochet Fucsia y Negro con Volantes</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="bolso"><div class="product-media"><img src="assets/img/tricotra-15-7ccb7b1a.jpg" alt="LOOP bolso artesanal"><img class="hover-image" src="assets/img/tricotra-14-c22de935.jpg" alt=""></div><div class="product-info"><p>Bolso</p><h3>LOOP bolso artesanal</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="prenda"><div class="product-media"><img src="assets/img/tricotra-11-4d88a423.jpg" alt="Top EXTRAVAGANZA"><img class="hover-image" src="assets/img/tricotra-19-9d9b62aa.jpg" alt=""></div><div class="product-info"><p>Top</p><h3>Top EXTRAVAGANZA</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="prenda"><div class="product-media"><img src="assets/img/tricotra-18-748ce39c.jpg" alt="Mangas campana"><img class="hover-image" src="assets/img/tricotra-20-6d07e46f.jpg" alt=""></div><div class="product-info"><p>Prenda</p><h3>Mangas campana</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card feature-product" data-category="prenda"><div class="product-media"><img src="assets/img/tricotra-30-0b845335.jpg" alt="VESTIDO NATURE"><img class="hover-image" src="assets/img/tricotra-09-c2e0441d.jpg" alt=""></div><div class="product-info"><p>Vestido</p><h3>VESTIDO NATURE</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="prenda"><div class="product-media"><img src="assets/img/tricotra-16-abd83c36.jpg" alt="CHALECO JEANS"><img class="hover-image" src="assets/img/tricotra-02-9094b161.jpg" alt=""></div><div class="product-info"><p>Chaleco</p><h3>CHALECO JEANS</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="abrigo"><div class="product-media"><img src="assets/img/tricotra-01-fcd14aa7.jpg" alt="BALACLAVA DE CROCHET"><img class="hover-image" src="assets/img/tricotra-13-4f23e641.jpg" alt=""></div><div class="product-info"><p>Gorro</p><h3>BALACLAVA DE CROCHET</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="abrigo"><div class="product-media"><img src="assets/img/tricotra-24-56afde8f.jpg" alt="Balaclava Grannys"><img class="hover-image" src="assets/img/tricotra-22-6382b3dd.jpg" alt=""></div><div class="product-info"><p>Gorro</p><h3>Balaclava Grannys</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="bolso"><div class="product-media"><img src="assets/img/tricotra-12-ee661293.jpg" alt="BOLSO DE FIESTA TRICOLUXE"><img class="hover-image" src="assets/img/tricotra-06-080bde24.jpg" alt=""></div><div class="product-info"><p>Bolso</p><h3>BOLSO DE FIESTA TRICOLUXE</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="bolso"><div class="product-media"><img src="assets/img/tricotra-06-080bde24.jpg" alt="BOLSO DE FIESTA HILOS TRICOLUXE"><img class="hover-image" src="assets/img/tricotra-12-ee661293.jpg" alt=""></div><div class="product-info"><p>Bolso</p><h3>BOLSO DE FIESTA HILOS TRICOLUXE</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="bolso"><div class="product-media"><img src="assets/img/tricotra-14-c22de935.jpg" alt="Bolso MOOS CHIC"><img class="hover-image" src="assets/img/tricotra-03-6281803c.jpg" alt=""></div><div class="product-info"><p>Bolso</p><h3>Bolso MOOS CHIC</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="bolso"><div class="product-media"><img src="assets/img/tricotra-03-6281803c.jpg" alt="Bolso NOIR CHIC"><img class="hover-image" src="assets/img/tricotra-14-c22de935.jpg" alt=""></div><div class="product-info"><p>Bolso</p><h3>Bolso NOIR CHIC</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="bolso"><div class="product-media"><img src="assets/img/tricotra-05-3cff6be6.jpg" alt="YUBI TOTE cinta brillo"><img class="hover-image" src="assets/img/tricotra-04-90a7c116.jpg" alt=""></div><div class="product-info"><p>Bolso</p><h3>YUBI TOTE cinta brillo</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="bolso"><div class="product-media"><img src="assets/img/tricotra-27-810fdf5a.jpg" alt="Bolso AUREA"><img class="hover-image" src="assets/img/tricotra-28-03692e6d.jpg" alt=""></div><div class="product-info"><p>Bolso</p><h3>Bolso AUREA</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="prenda"><div class="product-media"><img src="assets/img/tricotra-17-3bb5aead.jpg" alt="Bluson VERDELINA verde"><img class="hover-image" src="assets/img/tricotra-18-748ce39c.jpg" alt=""></div><div class="product-info"><p>Verdelina</p><h3>Bluson VERDELINA verde</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="abrigo"><div class="product-media"><img src="assets/img/tricotra-13-4f23e641.jpg" alt="ABRIGO GRANNYS"><img class="hover-image" src="assets/img/tricotra-01-fcd14aa7.jpg" alt=""></div><div class="product-info"><p>Abrigo</p><h3>ABRIGO GRANNYS</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
-          <article class="product-card" data-category="prenda"><div class="product-media"><img src="assets/img/tricotra-18-748ce39c.jpg" alt="TOP VERDELINA"><img class="hover-image" src="assets/img/tricotra-17-3bb5aead.jpg" alt=""></div><div class="product-info"><p>Verdelina</p><h3>TOP VERDELINA</h3><span>Consultar disponibilidad</span><a class="shop-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Consultar por WhatsApp</a></div></article>
+          <article class="product-card" data-product-handle="urban-bloom-bag"><img src="assets/img/tricotra-04-90a7c116.jpg" alt="Urban Bloom Bag"><div><p>Bolso artesanal</p><h3>Urban Bloom Bag</h3><span>Color, textura y presencia.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Urban%20Bloom%20Bag%20de%20Tricotr%C3%A0">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="top-crochet-fucsia-negro-volantes"><img src="assets/img/tricotra-10-21f05653.jpg" alt="Top Crochet Fucsia y Negro con Volantes"><div><p>Top crochet</p><h3>Top Crochet Fucsia y Negro con Volantes</h3><span>Una pieza intensa y femenina.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20el%20Top%20Crochet%20Fucsia%20y%20Negro%20con%20Volantes">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="loop-bolso-artesanal"><img src="assets/img/tricotra-15-7ccb7b1a.jpg" alt="LOOP bolso artesanal"><div><p>Bolso</p><h3>LOOP bolso artesanal</h3><span>Volumen suave y acabado handmade.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20LOOP%20bolso%20artesanal">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="top-extravaganza"><img src="assets/img/tricotra-11-4d88a423.jpg" alt="Top EXTRAVAGANZA"><div><p>Top</p><h3>Top EXTRAVAGANZA</h3><span>Diseño protagonista para looks especiales.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Top%20EXTRAVAGANZA">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="vestido-nature"><img src="assets/img/tricotra-30-0b845335.jpg" alt="VESTIDO NATURE"><div><p>Vestido</p><h3>VESTIDO NATURE</h3><span>Ligero, natural y editorial.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20VESTIDO%20NATURE">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="chaleco-jeans"><img src="assets/img/tricotra-16-abd83c36.jpg" alt="CHALECO JEANS"><div><p>Chaleco</p><h3>CHALECO JEANS</h3><span>Crochet con actitud diaria.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20CHALECO%20JEANS">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="bolso-moos-chic"><img src="assets/img/tricotra-14-c22de935.jpg" alt="Bolso MOOS CHIC"><div><p>Bolso</p><h3>Bolso MOOS CHIC</h3><span>Accesorio cálido con carácter.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Bolso%20MOOS%20CHIC">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="bolso-aurea"><img src="assets/img/tricotra-27-810fdf5a.jpg" alt="Bolso AUREA"><div><p>Bolso</p><h3>Bolso AUREA</h3><span>Brillo sutil para ocasiones especiales.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Bolso%20AUREA">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="abrigo-grannys"><img src="assets/img/tricotra-13-4f23e641.jpg" alt="ABRIGO GRANNYS"><div><p>Abrigo</p><h3>ABRIGO GRANNYS</h3><span>Patrón icónico, abrigo y textura.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ABRIGO%20GRANNYS">Consultar</a></div></article>
+          <article class="product-card" data-product-handle="top-verdelina"><img src="assets/img/tricotra-18-748ce39c.jpg" alt="TOP VERDELINA"><div><p>Top</p><h3>TOP VERDELINA</h3><span>Verde, fresco y muy artesanal.</span><a class="product-button" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20TOP%20VERDELINA">Consultar</a></div></article>
         </div>
       </section>
 
-      <section class="brand-sections" id="ropa-complementaria">
-        <article>
-          <p class="section-kicker">Ropa complementaria</p>
-          <h2>Capas, mangas y detalles que transforman el look</h2>
-          <p>Prendas ligeras, combinables y especiales para completar vestidos, tops y looks de noche sin perder comodidad.</p>
-          <a class="button ghost" href="tienda.html">Ver prendas</a>
-        </article>
-        <article id="bolsos">
-          <p class="section-kicker">Bolsos TRICOTRA</p>
-          <h2>Color, volumen y crochet para llevar en la mano</h2>
-          <p>Desde bolsos de fiesta hasta totes con textura: accesorios protagonistas hechos en series pequenas.</p>
-          <a class="button primary" href="tienda.html">Ver bolsos</a>
-        </article>
+      <section class="story-section" id="sobre-nosotros">
+        <div class="story-copy">
+          <p class="eyebrow">Nuestra historia</p>
+          <h2>Hecho a mano con alma mediterránea</h2>
+          <p>En Tricotrà cada pieza nace de un proceso artesanal cuidado, donde el diseño, la textura y el color se trabajan con calma. Creamos prendas y accesorios de crochet para mujeres que buscan vestir algo diferente, especial y con historia.</p>
+          <a class="button button-accent" href="#contacto">Conócenos</a>
+        </div>
+        <img src="assets/img/tricotra-26-dbf9d8f0.jpg" alt="Proceso artesanal de crochet hecho a mano">
       </section>
 
-      <section class="editorial-band">
-        <div>
-          <p class="eyebrow">Piezas unicas para mujeres unicas</p>
-          <h2>Lo importante no es solo como te queda. Es como te hace sentir.</h2>
-        </div>
-        <a class="button primary" href="contacto.html">Encargar a medida</a>
+      <section class="values-strip" aria-label="Beneficios Tricotrà">
+        <article><span>01</span><h3>Hecho a mano</h3><p>Cada pieza se trabaja con dedicación y detalle.</p></article>
+        <article><span>02</span><h3>Diseños únicos</h3><p>No hay dos prendas exactamente iguales.</p></article>
+        <article><span>03</span><h3>Producción cuidada</h3><p>Creaciones pensadas para durar y acompañarte.</p></article>
+        <article><span>04</span><h3>Atención personalizada</h3><p>Te asesoramos por WhatsApp para elegir tu pieza.</p></article>
       </section>
 
-      <section class="wholesale-section" id="tiendas">
-        <div>
-          <p class="eyebrow">¿Tienes una tienda?</p>
-          <h2>Una seleccion artesanal para boutiques con personalidad</h2>
+      <section class="lookbook-section">
+        <div class="lookbook-copy">
+          <p class="eyebrow">Inspiración</p>
+          <h2>Texturas que cuentan historias</h2>
+          <p>El crochet convierte cada prenda en una pieza con carácter: suave, especial y pensada para destacar sin perder naturalidad.</p>
         </div>
-        <p>
-          Creamos piezas para tiendas que buscan producto especial, diferente y con historia. Trabajamos pequenas
-          cantidades, encargos de color y colecciones pensadas para escaparates con alma.
-        </p>
-        <a class="button primary" href="contacto.html">Solicitar catalogo</a>
-      </section>
-
-      <section class="atelier" id="atelier">
-        <div class="atelier-image">
-          <img
-            src="assets/img/tricotra-26-dbf9d8f0.jpg"
-            alt="Proceso artesanal de crochet TRICOTRA"
-          >
-        </div>
-        <div class="atelier-copy">
-          <p class="section-kicker">Atelier crochet</p>
-          <h2>Disenos propios, personalizados y con menos desperdicio</h2>
-          <p>
-            TRICOTRA trabaja con lanas, algodones, linos, sedas e hilos regenerados. La marca mezcla generos,
-            ama el color y crea prendas con glamour, delicadeza y mucha identidad.
-          </p>
-          <ul>
-            <li>Asesoria de talla antes de finalizar el pedido.</li>
-            <li>Produccion limitada para evitar excedentes.</li>
-            <li>Encargos especiales para tiendas y clientas privadas.</li>
-          </ul>
+        <div class="lookbook-grid">
+          <img class="tall" src="assets/img/tricotra-22-6382b3dd.jpg" alt="Look de crochet Tricotrà">
+          <img src="assets/img/tricotra-05-3cff6be6.jpg" alt="Bolso artesanal Tricotrà">
+          <img src="assets/img/tricotra-08-1cbb5e71.jpg" alt="Chal artesanal Tricotrà">
         </div>
       </section>
 
-      <section class="trust-section" id="conocenos">
-        <div class="shop-heading">
-          <p class="eyebrow">Conocenos</p>
-          <h2>Por que elegir TRICOTRA</h2>
-          <p>La pagina original habla de exclusividad, sostenibilidad, comodidad y proceso artesanal. Aqui lo convertimos en una experiencia clara para comprar con confianza.</p>
-        </div>
-        <div class="trust-grid">
-          <article>
-            <h3>Exclusividad</h3>
-            <p>No hay dos piezas exactamente iguales. Cada prenda mantiene el valor de lo hecho a mano.</p>
-          </article>
-          <article>
-            <h3>Sostenibilidad</h3>
-            <p>Produccion consciente, materiales seleccionados y una filosofia de menos excedente.</p>
-          </article>
-          <article>
-            <h3>Comodidad y estilo</h3>
-            <p>Crochet suave, ligero y adaptable para distintas estaciones y ocasiones.</p>
-          </article>
-          <article>
-            <h3>Proceso cuidado</h3>
-            <p>Diseno, eleccion de materiales, tejido, control de calidad y acabado final.</p>
-          </article>
+      <section class="final-cta">
+        <p class="eyebrow">Piezas por encargo</p>
+        <h2>¿Buscas una pieza especial?</h2>
+        <p>Escríbenos por WhatsApp y te ayudamos a encontrar o encargar la prenda perfecta.</p>
+        <div class="hero-actions center-actions">
+          <a class="button button-dark" href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">Contactar por WhatsApp</a>
+          <a class="button button-light" href="https://www.instagram.com/tricotra.moda/">Ver Instagram</a>
         </div>
       </section>
 
-      <section class="journal-section" id="blog">
-        <p class="section-kicker">Blog</p>
-        <h2>Historias de hilos, color y estilo consciente</h2>
-        <div class="journal-grid">
-          <article>
-            <span>Guia</span>
-            <h3>Como cuidar tus prendas de crochet</h3>
-          </article>
-          <article>
-            <span>Estilo</span>
-            <h3>Ideas para combinar bolsos artesanales</h3>
-          </article>
-          <article>
-            <span>Atelier</span>
-            <h3>El valor de una pieza hecha bajo pedido</h3>
-          </article>
+      <section class="contact-section" id="contacto">
+        <div class="section-heading">
+          <p class="eyebrow">Contacto</p>
+          <h2>Hablemos de tu próxima pieza</h2>
+        </div>
+        <div class="contact-grid">
+          <a href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0"><span>WhatsApp</span>645 514 006</a>
+          <a href="tel:+34952623669"><span>Teléfono</span>952 62 36 69</a>
+          <a href="mailto:tricotracrochet@hotmail.com"><span>Email</span>tricotracrochet@hotmail.com</a>
+          <a href="https://www.instagram.com/tricotra.moda/"><span>Instagram</span>@tricotra.moda</a>
         </div>
       </section>
-
-      <section class="social-section" id="instagram">
-        <div class="shop-heading">
-          <p class="eyebrow">@tricotra.moda</p>
-          <h2>Inspiracion real para una tienda viva</h2>
-          <p>Galeria provisional de demo con imagenes de colecciones Tricotra. Cuando tengamos el material final, esta zona se puede convertir en feed real, campanas o novedades.</p>
-        </div>
-        <div class="social-grid" aria-label="Galeria visual de Tricotra">
-          <a href="tienda.html">
-            <img src="assets/img/tricotra-08-1cbb5e71.jpg" alt="Chal salmon Nature de crochet">
-            <span>Nature</span>
-          </a>
-          <a href="tienda.html">
-            <img src="assets/img/tricotra-05-3cff6be6.jpg" alt="Bolso Ritual crudo">
-            <span>Bolsos</span>
-          </a>
-          <a href="colecciones.html">
-            <img src="assets/img/tricotra-17-3bb5aead.jpg" alt="Moodboard coleccion Lumina">
-            <span>Lumina</span>
-          </a>
-          <a href="tienda.html">
-            <img src="assets/img/tricotra-07-b596ff15.jpg" alt="Chal Ritual Veggie">
-            <span>Ritual</span>
-          </a>
-          <a href="conocenos.html">
-            <img src="assets/img/tricotra-29-fd529f17.jpg" alt="Imagen de marca Tricotra">
-            <span>Atelier</span>
-          </a>
-        </div>
-      </section>
-
     </main>
 
-    <footer class="site-footer" id="contacto">
+    <footer class="site-footer">
       <div>
-        <h2>TRICOTRA</h2>
-        <p>Crochet artesanal, color y piezas limitadas hechas en Espana.</p>
-      </div>
-      <div>
-        <h3>Contacto</h3>
-        <a href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">WhatsApp: 645 514 006</a>
-        <a href="tel:+34952623669">Telefono: 952 62 36 69</a>
-        <a href="mailto:tricotracrochet@hotmail.com">tricotracrochet@hotmail.com</a>
-        <a href="https://www.instagram.com/tricotra.moda/">Instagram @tricotra.moda</a>
-        <a href="conocenos.html">Conocenos</a>
+        <h2>TRICOTRÀ</h2>
+        <p>Moda crochet hecha a mano</p>
       </div>
       <div>
         <h3>Tienda</h3>
-        <a href="crochet.html">Coleccion crochet</a>
-        <a href="bolsos.html">Bolsos</a>
-        <a href="blog.html">Blog</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#colecciones">Colecciones</a>
+        <a href="#productos">Productos destacados</a>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <a href="#contacto">Contacto</a>
+        <a href="https://api.whatsapp.com/send?phone=34645514006&text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20prendas%20de%20Tricotr%C3%A0">WhatsApp</a>
+        <a href="https://www.instagram.com/tricotra.moda/">Instagram</a>
+      </div>
+      <div>
+        <h3>Shopify</h3>
+        <p>Preparado para futura tienda Shopify</p>
       </div>
     </footer>
 
     <script src="script.js"></script>
   </body>
 </html>
-

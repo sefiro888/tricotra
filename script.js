@@ -1,15 +1,26 @@
-const filters = document.querySelectorAll(".filter");
-const products = document.querySelectorAll(".product-card");
+const menuToggle = document.querySelector("[data-menu-toggle]");
+const nav = document.querySelector("[data-nav]");
+const submenuToggles = document.querySelectorAll("[data-submenu-toggle]");
 
-filters.forEach((filter) => {
-  filter.addEventListener("click", () => {
-    const activeFilter = filter.dataset.filter;
+menuToggle?.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("is-open");
+  document.body.classList.toggle("menu-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
 
-    filters.forEach((item) => item.classList.remove("active"));
-    filter.classList.add("active");
+submenuToggles.forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    toggle.closest(".nav-dropdown")?.classList.toggle("is-open");
+  });
+});
 
-    products.forEach((product) => {
-      product.hidden = activeFilter !== "all" && product.dataset.category !== activeFilter;
+nav?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    document.querySelectorAll(".nav-dropdown.is-open").forEach((dropdown) => {
+      dropdown.classList.remove("is-open");
     });
   });
 });
